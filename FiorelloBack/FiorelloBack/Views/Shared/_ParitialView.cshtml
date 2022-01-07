@@ -1,0 +1,28 @@
+﻿
+@model HomeVM
+@using FiorelloBack.ViewModels
+
+ @foreach (Flower flower in Model.Flowers)
+                       {
+                         
+                               <div class="col col-lg-3 col-md-4 col-sm-4 col-12 all   @foreach (FlowerCategory flowerCategory in flower.FlowerCategories ){
+                                                                @(flowerCategory.Category.Name.ToLower() + " ")
+                                            }" data-id="@flower.Id">
+                            <div class="top">
+                               @foreach (FlowerImage flowerImage in flower.FlowerImages)
+                              {
+                                   <img src="~/Assets/images/@flowerImage.Image" alt="majesty palm flower" title="Majesty Palm" />
+                              }
+                            </div>
+                            <div class="title">
+                                <a href="#">@flower.Name</a>
+                                <div>
+                                    <p id="buy"> Add to cart </p>
+                                    <p> <span>$</span><span>@flower.Price</span> </p>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                           
+                       }
